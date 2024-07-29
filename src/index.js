@@ -1,4 +1,5 @@
 import express from 'express';
+import pino from 'pino-http';
 
 const PORT = 3000;
 
@@ -20,6 +21,14 @@ app.get('/', (req, res) => {
     message: 'Hello, World!',
   });
 });
+
+app.use(
+  pino({
+    transport: {
+      target: 'pino-pretty',
+    },
+  }),
+);
 
 // Middleware для обробких помилок (приймає 4 аргументи)
 app.use((err, req, res, next) => {
