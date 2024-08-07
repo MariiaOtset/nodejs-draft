@@ -18,12 +18,10 @@ import { isValidId } from '../middlewares/isValidId.js';
 
 const router = Router();
 
+router.use('/students/:studentId', isValidId('studentId'));
+
 router.get('/students', ctrlWrapper(getStudentsController));
-router.get(
-  '/students/:studentId',
-  isValidId,
-  ctrlWrapper(getStudentByIdController),
-);
+router.get('/students/:studentId', ctrlWrapper(getStudentByIdController));
 router.delete('/students/:studentId', ctrlWrapper(deleteStudentController));
 
 router.post(
