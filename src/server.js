@@ -5,7 +5,7 @@ import pino from 'pino-http';
 import cors from 'cors';
 
 import { env } from './utils/env.js';
-import studentsRouter from './routers/students.js';
+import router from './routers/index.js';
 import { errorHandler } from './middlewares/errorHandler.js';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
 
@@ -30,7 +30,8 @@ export const startServer = () => {
     });
   });
 
-  app.use(studentsRouter); // Додаємо роутер до app як middleware
+  // Додаємо роутер до app як middleware
+  app.use(router);
 
   app.use('*', notFoundHandler);
 
