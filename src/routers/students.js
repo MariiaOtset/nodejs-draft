@@ -32,7 +32,6 @@ router.get('/', checkRoles(ROLES.TEACHER), ctrlWrapper(getStudentsController));
 router.get(
   '/:studentId',
   checkRoles(ROLES.TEACHER, ROLES.PARENT),
-  isValidId,
   ctrlWrapper(getStudentByIdController),
 );
 
