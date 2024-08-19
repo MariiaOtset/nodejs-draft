@@ -10,7 +10,7 @@ import {
   upsertStudentController,
   patchStudentController,
 } from '../controllers/students.js';
-import { ctrlWrapper } from '../utils/ctrlWrapper';
+import { ctrlWrapper } from '../utils/ctrlWrapper.js';
 import { validateBody } from '../middlewares/validateBody.js';
 import {
   createStudentSchema,
@@ -42,7 +42,7 @@ router.delete(
 );
 
 router.post(
-  '/register',
+  '/',
   checkRoles(ROLES.TEACHER),
   validateBody(createStudentSchema),
   ctrlWrapper(createStudentController),

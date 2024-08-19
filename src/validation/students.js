@@ -1,6 +1,3 @@
-/* eslint-disable no-undef */
-// src/validation/students.js
-
 import Joi from 'joi';
 
 export const createStudentSchema = Joi.object({
@@ -27,17 +24,17 @@ export const updateStudentSchema = Joi.object({
   onDuty: Joi.boolean(),
 });
 
-const dataToValidate = {
-  name: 'John Doe',
-  email: 'john.doe@example.com',
-  age: 12,
-  gender: 'male',
-  avgMark: 10.2,
-};
+// const dataToValidate = {
+//   name: 'John Doe',
+//   email: 'john.doe@example.com',
+//   age: 12,
+//   gender: 'male',
+//   avgMark: 10.2,
+// };
 
-const validationResult = createStudentSchema.validate(dataToValidate);
-if (validationResult.error) {
-  console.error(validationResult.error.message);
-} else {
-  console.log('Data is valid!');
-}
+// const validationResult = createStudentSchema.validate(dataToValidate);
+// if (validationResult.error) {
+//   console.error(validationResult.error.message);
+// } else {
+//   console.log('Data is valid!');
+// }
