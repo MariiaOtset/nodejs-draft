@@ -2,13 +2,18 @@
 import { Router } from 'express';
 
 import { ctrlWrapper } from '../utils/ctrlWrapper.js';
-import {registerUserSchema,
+import {
+  registerUserSchema,
   loginUserSchema,
-  requestResetEmailSchema
+  requestResetEmailSchema,
 } from '../validation/auth.js';
 import { validateBody } from '../middlewares/validateBody.js';
-import {registerUserController, loginUserController, logoutUserController
-  refreshUserSessionController, requestResetEmailController
+import {
+  registerUserController,
+  loginUserController,
+  logoutUserController,
+  refreshUserSessionController,
+  requestResetEmailController,
 } from '../controllers/auth.js';
 
 const router = Router();
@@ -36,7 +41,5 @@ router.post(
 );
 
 router.post('/reset-password');
-
-
 
 export default router;
