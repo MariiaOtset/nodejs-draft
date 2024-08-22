@@ -51,8 +51,18 @@ export const getStudentByIdController = async (req, res, next) => {
 
 export const createStudentController = async (req, res) => {
   const userId = req.user._id;
-  const { body, file } = req;
-  const student = await createStudent({ ...body, photo: file }, userId);
+  const photo = req.file;
+
+  let photoUrl;
+
+  if (photo) {
+    if (env('ENABLE_CLOUDINARY') === 'true') {
+      photoUrl = await saveFileToCloudinary(photo);
+    } else {
+      photoUrl = await saveFileToUploadDir(photo);
+    }
+  }
+  const student = await createStudent({ ...req.body, photo: photoUrl }, userId);
 
   res.status(201).json({
     status: 201,
