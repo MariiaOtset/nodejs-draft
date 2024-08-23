@@ -62,7 +62,7 @@ export const createStudentController = async (req, res) => {
       photoUrl = await saveFileToUploadDir(photo);
     }
   }
-  const student = await createStudent({ ...req.body, photo: photoUrl }, userId);
+  const student = await createStudent({ ...req.body, photo: photoUrl, userId });
 
   res.status(201).json({
     status: 201,
