@@ -8,7 +8,7 @@ security:
   - bearerAuth: []
 parameters:
   - in: path
-    name: id
+    name: studentId
     required: true
     schema:
       type: string
